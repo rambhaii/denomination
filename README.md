@@ -1,4 +1,4 @@
-# easemydeal
+# denomination
 
 A new Flutter project.
 

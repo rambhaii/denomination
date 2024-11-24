@@ -1,4 +1,4 @@
-name: easemydeal
+name: denomination
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -44,14 +44,20 @@ dependencies:
   # Routing
   go_router: ^14.2.0
  
-  # http
-  http: any
+  
+  get:
   
   # Showing Network Image
   cached_network_image: any
-
-  #Video Player
-  video_player: any
+  flutter_speed_dial: ^7.0.0
+  dropdown_button2: ^2.3.9
+  change_app_package_name: ^1.4.0
+  sqflite: 
+  path: 
+  intl:
+  flutter_slidable: 
+  share_plus:
+ 
 
   #Stat Management
   provider: any

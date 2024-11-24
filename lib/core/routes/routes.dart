@@ -1,12 +1,12 @@
 import 'dart:io';
 
-import 'package:easemydeal/core/utils_lib/globle_variable.dart';
-import 'package:easemydeal/presentation/screens/home_sceen.dart';
-import 'package:easemydeal/presentation/splash_screen.dart';
+import 'package:denomination/core/utils_lib/globle_variable.dart';
+import 'package:denomination/presentation/screens/home_sceen.dart';
+import 'package:denomination/presentation/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-/// Route names as constants
+
 class MyRoutes {
   static GoRouter router = GoRouter(
     navigatorKey: GlobalVariable.globalScaffoldKey,
@@ -20,16 +20,15 @@ class MyRoutes {
       animatedGoRoute(
         path: HOME,
         name: HOME,
-        pageBuilder: (context, state) => const HomeScreen(),
+        pageBuilder: (context, state) =>  HomeScreen(
+          isEdit: false,
+        ),
       ),
-  
     ],
   );
 
-  /// Route constants
   static const SPLASH = "/";
   static const HOME = "/home";
-
 }
 
 GoRoute animatedGoRoute({
@@ -55,4 +54,3 @@ GoRoute animatedGoRoute({
     ),
   );
 }
-

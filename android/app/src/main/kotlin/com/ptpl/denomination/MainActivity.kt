@@ -1,4 +1,4 @@
-package com.example.easemydeal
+package com.ptpl.denomination
 
 import io.flutter.embedding.android.FlutterActivity
 

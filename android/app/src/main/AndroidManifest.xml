@@ -1,6 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="easemydeal"
+    android:enableOnBackInvokedCallback="true"
+        android:label="Denomination"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

@@ -1,7 +1,8 @@
 import 'dart:async';
 
-import 'package:easemydeal/core/routes/routes.dart';
-import 'package:easemydeal/core/utils_lib/extensions.dart';
+import 'package:denomination/core/routes/routes.dart';
+import 'package:denomination/core/utils_lib/extensions.dart';
+
 import 'package:flutter/material.dart';
 
 

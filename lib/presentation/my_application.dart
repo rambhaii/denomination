@@ -1,6 +1,6 @@
-import 'package:easemydeal/core/constant/custom_theme.dart';
-import 'package:easemydeal/core/routes/routes.dart';
-import 'package:easemydeal/logic/story_provider.dart';
+import 'package:denomination/core/constant/custom_theme.dart';
+import 'package:denomination/core/routes/routes.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
@@ -28,21 +28,14 @@ class _MyApplicationState extends State<MyApplication> {
           create: (_) {
             return InternetConnectionChecker().onStatusChange;
           },
-          child: MultiProvider(
-            providers: [
-              ChangeNotifierProvider(
-                create: (ctx) => StoryProvider(),
-              ),
-            ],
-            child: MaterialApp.router(
-              routerConfig: MyRoutes.router,
-              debugShowCheckedModeBanner: false,
-              themeMode: ThemeMode.light,
-              title: "EaseMyDeal",
-              theme: ThemeData(
-                colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-                useMaterial3: true,
-              ),
+          child: MaterialApp.router(
+            routerConfig: MyRoutes.router,
+            debugShowCheckedModeBanner: false,
+            themeMode: ThemeMode.light,
+            title: "Denomination",
+            theme: ThemeData(
+              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+              useMaterial3: true,
             ),
           ),
         ),
