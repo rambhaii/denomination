@@ -30,7 +30,8 @@ class DatabaseHelper {
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         remark TEXT,
         total INTEGER,
-        created_at TEXT
+        created_at TEXT,
+        category TEXT
       )
     ''');
 

@@ -6,6 +6,8 @@ class HomeController extends GetxController {
  
   var controllers = <TextEditingController>[];
 
+  
+
   var items = [
     {
       "amount": 2000,
@@ -61,13 +63,15 @@ class HomeController extends GetxController {
 
   final _dbHelper = DatabaseHelper.instance;
 
-  Future<void> saveData(String remark) async {
+  Future<void> saveData(String remark) async
+   {
     
     final total = getTotalResult();
     final saveId = await _dbHelper.insertSave({
       'remark': remark,
       'total': total,
       'created_at': DateTime.now().toIso8601String(),
+      'category':selectedCategory.value
     });
 
 
@@ -92,6 +96,7 @@ class HomeController extends GetxController {
       'remark': remark,
       'total': total,
       'created_at': DateTime.now().toIso8601String(),
+      'category':selectedCategory.value
     });
     for (var detail in updatedDetails) {
       if (detail['id'] == null) {
@@ -125,4 +130,17 @@ class HomeController extends GetxController {
       }
     }
   }
+
+   var selectedCategory = "General".obs;
+  var categoryList = ["General", "Income", "Expense"].obs;  // Example categories
+
+  void updateSelectedCategory(String value) {
+    selectedCategory.value = value;
+  }
+
+  void setSavedCategory(String savedCategory) {
+  selectedCategory.value = savedCategory;
+}
+  
+
 }

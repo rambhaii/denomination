@@ -82,7 +82,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                       backgroundColor: Color(0xFFFE4A49),
                       foregroundColor: Colors.white,
                       icon: Icons.delete,
-                      label: 'Delete',
+                      //label: 'Delete',
                     ),
                     SlidableAction(
                       onPressed: (context) async {
@@ -95,20 +95,21 @@ class _HistoryScreenState extends State<HistoryScreen> {
                                 items: details,
                                 isEdit: true,
                                 id: save['id'],
-                                oldRemak: save['remark']),
+                                oldRemak: save['remark'],
+                                category: save['category']),
                           ),
                         );
                       },
                       foregroundColor: Colors.white,
                       backgroundColor: Color(0xFF21B7CA),
                       icon: Icons.edit,
-                      label: 'Edit',
+                      // label: 'Edit',
                     ),
                     SlidableAction(
                       onPressed: (context) async {
-                       var shareContent = '''
+                        var shareContent = '''
 Denomination
-General
+${save['category']}
 Denomination 
 ${save['created_at']}
 ${save['remark']}
@@ -149,7 +150,7 @@ ${NumberToWordsConverter.convert(save['total'])} only/-}
                       backgroundColor: Color.fromARGB(255, 52, 176, 83),
                       foregroundColor: Colors.white,
                       icon: Icons.share,
-                      label: 'Share',
+                      // label: 'Share',
                     )
                   ],
                 ),
@@ -166,20 +167,48 @@ ${NumberToWordsConverter.convert(save['total'])} only/-}
                       color: Color(0xFF39424B),
                     ),
                     child: ListTile(
-                      title: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      title: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            "Genral",
-                            style: TextStyle(color: Colors.grey),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                save['category'],
+                                style: TextStyle(color: Colors.grey),
+                              ),
+                              Text(
+                                '₹ ${formatNumberWithComma(save['total'])}',
+                                style: TextStyle(
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.w900,
+                                  fontSize: 18,
+                                ),
+                              ),
+                            ],
                           ),
-                          Text(
-                            '₹ ${formatNumberWithComma(save['total'])}',
-                            style: TextStyle(
-                              color: Colors.blue,
-                              fontWeight: FontWeight.w900,
-                              fontSize: 18,
-                            ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Text(
+                                DateFormat('MMM dd, yyyy')
+                                    .format(DateTime.parse(save['created_at'])),
+                                style: TextStyle(
+                                  color: Colors.blue.withOpacity(0.5),
+                                  fontWeight: FontWeight.w900,
+                                  fontSize: 14,
+                                ),
+                              ),
+                              Text(
+                                DateFormat('hh:mm a')
+                                    .format(DateTime.parse(save['created_at'])),
+                                style: TextStyle(
+                                  color: Colors.blue.withOpacity(0.5),
+                                  fontWeight: FontWeight.w900,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
@@ -190,9 +219,7 @@ ${NumberToWordsConverter.convert(save['total'])} only/-}
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                      onTap: () async {
-                       
-                      },
+                      onTap: () async {},
                     ),
                   ),
                 ),
